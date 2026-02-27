@@ -176,3 +176,80 @@
 //     Console.WriteLine($"{item ?? "null"} - {GetCategory(item)}");
 // }
 
+
+
+
+// TODO: task 5
+
+int[] numbers = {5, -3, 8, 12, -7, 0, 15, -2, 4, 20};
+
+static void printEvenIndx(int[] arr)
+{
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (i % 2 == 0)
+        {
+            Console.WriteLine(arr[i]);
+        }
+    }
+}
+
+static int calculateSum(int[] arr)
+{
+    int res = 0;
+    foreach(int item in arr)
+    {
+        res += item;
+    }
+
+    return res;
+}
+
+static int findFirstGreaterThan(int[] arr, int num)
+{
+    int i = 0;
+    while (true)
+    {
+        if (arr[i] > num)
+        {
+            return arr[i];
+        }
+        i++;
+    }
+}
+
+static void printSumUntilLimit(int[] arr, int limit)
+{
+    int sum = 0;
+    int i = 0;
+    do
+    {
+        sum += arr[i];
+        i++;
+        Console.WriteLine(sum);
+    } while (sum < limit);
+}
+
+static void printPositiveOnly(int[] arr)
+{
+    foreach (var item in arr)
+    {
+    if (item <= 0)
+    {
+        continue;
+    }
+    Console.WriteLine(item);
+    }
+}
+
+printEvenIndx(numbers);
+Console.WriteLine("--------------------");
+int r = calculateSum(numbers);
+Console.WriteLine(r);
+Console.WriteLine("--------------------");
+int rr = findFirstGreaterThan(numbers, 9);
+Console.WriteLine(rr);
+Console.WriteLine("--------------------");
+printSumUntilLimit(numbers, 11);
+Console.WriteLine("--------------------");
+printPositiveOnly(numbers);
