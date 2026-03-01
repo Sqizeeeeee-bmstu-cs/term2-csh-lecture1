@@ -258,65 +258,202 @@
 // TODO: task 5
 
 
-static void PrintMatrix(int[,] matrix)
+// static void PrintMatrix(int[,] matrix)
+// {
+//     if (matrix == null || matrix.Length == 0)
+//     {
+//         Console.WriteLine("matrix is free");
+//         return;
+//     }
+
+//     int rows = matrix.GetLength(0);
+//     int cols = matrix.GetLength(1);
+
+//     for (int row = 0; row < rows; row++)
+//     {
+//         for (int col = 0; col < cols; col++)
+//         {
+//             Console.Write($"{matrix[row, col]} ");
+//         }
+//         Console.WriteLine();
+//     }
+
+// }
+
+// static bool IsSymmetric(int[,] matrix)
+// {
+//     int rows = matrix.GetLength(0);
+//     int cols = matrix.GetLength(1);
+
+//     if (rows != cols || rows == 0)
+//     {
+//         return false;
+//     }
+
+//     for (int row = 0; row < rows; row++)
+//     {
+//         for (int col = row + 1; col < cols; col++)
+//         {
+//             if (matrix[row, col] != matrix[col, row])
+//             {
+//                 return false;
+//             }
+//         }
+//     }
+
+//     return true;
+// }
+
+// int[,] matrix1 = { { 1, 2, 4, 5 }, { 3, 4, 6, 8 } };
+// int[,] matrix2 = {{ 1, 2, 3 }, { 2, 5, 6}, {3, 6, 9}};
+// int[,] matrix3 = {{ 1, 2, 5 }, { 2, 5, 8}, {3, 6, 9}};
+
+// PrintMatrix(matrix1);
+// bool r = IsSymmetric(matrix1);
+// Console.WriteLine(r);
+// Console.WriteLine("----");
+// PrintMatrix(matrix2);
+// bool rr = IsSymmetric(matrix2);
+// Console.WriteLine(rr);
+// Console.WriteLine("----");
+// PrintMatrix(matrix3);
+// bool rrr = IsSymmetric(matrix3);
+// Console.WriteLine(rrr);
+// Console.WriteLine("----");
+
+// TODO: task 6
+
+
+
+static void PrintArrayNull(int?[] arr)
 {
-    if (matrix == null || matrix.Length == 0)
+    foreach (var item in arr)
     {
-        Console.WriteLine("matrix is free");
-        return;
-    }
-
-    int rows = matrix.GetLength(0);
-    int cols = matrix.GetLength(1);
-    
-    for (int row = 0; row < rows; row++)
-    {
-        for (int col = 0; col < cols; col++)
+        if (item is not null)
         {
-            Console.Write($"{matrix[row, col]} ");
+            Console.Write($"{item} ");
         }
-        Console.WriteLine();
+        else
+        {
+            Console.Write("null ");
+        }
     }
-
+    Console.WriteLine();
 }
 
-static bool IsSymmetric(int[,] matrix)
+static void PrintArray(int[] arr)
 {
-    int rows = matrix.GetLength(0);
-    int cols = matrix.GetLength(1);
-
-    if (rows != cols || rows == 0)
+    foreach (var item in arr)
     {
-        return false;
+        Console.Write($"{item} ");
     }
-    
-    for (int row = 0; row < rows; row++)
+    Console.WriteLine();
+}
+
+static int CountNull(int?[] arr)
+{
+    int counter = 0;
+
+    foreach (var item in arr)
     {
-        for (int col = row + 1; col < cols; col++)
+        if (item is null)
         {
-            if (matrix[row, col] != matrix[col, row])
-            {
-                return false;
-            }
+            counter++;
         }
     }
 
-    return true;
+    return counter;
 }
 
-int[,] matrix1 = { { 1, 2, 4, 5 }, { 3, 4, 6, 8 } };
-int[,] matrix2 = {{ 1, 2, 3 }, { 2, 5, 6}, {3, 6, 9}};
-int[,] matrix3 = {{ 1, 2, 5 }, { 2, 5, 8}, {3, 6, 9}};
+static int CountNotNull(int?[] arr)
+{
+    int counter = 0;
 
-PrintMatrix(matrix1);
-bool r = IsSymmetric(matrix1);
-Console.WriteLine(r);
-Console.WriteLine("----");
-PrintMatrix(matrix2);
-bool rr = IsSymmetric(matrix2);
-Console.WriteLine(rr);
-Console.WriteLine("----");
-PrintMatrix(matrix3);
-bool rrr = IsSymmetric(matrix3);
-Console.WriteLine(rrr);
-Console.WriteLine("----");
+    foreach (var item in arr)
+    {
+        if (item is not null)
+        {
+            counter++;
+        }
+    }
+
+    return counter;
+}
+
+
+// Считаем что в массиве или числа, или null.
+static int CountSum(int?[] arr)
+{
+    int sum = 0;
+
+    foreach (var item in arr)
+    {
+        if (item.HasValue)
+        {
+            sum += item.Value;
+        }
+    }
+
+    return sum;
+}
+
+static int[] CreateNewArrayWithNoNull(int?[] arr)
+{
+    int[] newArr = new int[arr.Length];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        newArr[i] = arr[i] ?? -1;
+    }
+
+    return newArr;
+}
+
+static void PrintLength(int?[] arr)
+{
+    foreach (var item in arr)
+    {
+        string str = item?.ToString() ?? "null";
+
+        Console.WriteLine($"element: {str}, length: {str.Length}");
+    }
+}
+
+static void ReplaceNullZeros(int?[] arr)
+{
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] ??= 0;
+    }
+}
+
+int?[] numbers = {10, null, 25, null, 30, 15, null};
+
+Console.WriteLine("--------------------------------");
+PrintArrayNull(numbers);
+Console.WriteLine("--------------------------------");
+
+int countNotNull = CountNotNull(numbers);
+int countNull = CountNull(numbers);
+
+Console.WriteLine($"null objects: {countNull}, not null objects: {countNotNull}");
+Console.WriteLine("--------------------------------");
+
+int sum = CountSum(numbers);
+Console.WriteLine($"sum of not null numbers: {sum}");
+Console.WriteLine("--------------------------------");
+
+int[] newArr = CreateNewArrayWithNoNull(numbers);
+PrintArray(newArr);
+Console.WriteLine("--------------------------------");
+
+PrintLength(numbers);
+Console.WriteLine("--------------------------------");
+
+Console.Write("Before: ");
+PrintArrayNull(numbers);
+
+ReplaceNullZeros(numbers);
+
+Console.WriteLine("After: ");
+PrintArray(numbers.Cast<int>().ToArray()); // меняем тип int? на int
+Console.WriteLine("--------------------------------");
