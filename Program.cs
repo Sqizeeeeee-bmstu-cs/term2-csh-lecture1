@@ -489,7 +489,109 @@
 // }
 
 
+// TODO: task 8 continue working woth files
 
 
+// string filePath = Path.Combine(Environment.CurrentDirectory, "notes.txt");
+
+// if (!File.Exists(filePath))
+// {
+//     Console.WriteLine("File do not exist. Creating new");
+// }
+
+// while (true)
+// {
+//     Console.WriteLine("\n--- Меню ---");
+//     Console.WriteLine("1 - Добавить заметку");
+//     Console.WriteLine("2 - Показать все заметки");
+//     Console.WriteLine("3 - Найти по слову");
+//     Console.WriteLine("4 - Очистить все");
+//     Console.WriteLine("0 - Выход");
+    
+//     string input = Console.ReadLine();
+//     if (!int.TryParse(input, out int choose))
+//     {
+//         Console.WriteLine("Введите число!");
+//         continue;
+//     }
+    
+//     switch (choose)
+//     {
+//         case 0:
+//             return;
+//         case 1:
+//             Console.Write("Введите текст заметки: ");
+//             string text = Console.ReadLine();
+            
+//             string datePart = $"[{DateTime.Now:dd.MM.yyyy HH:mm}]";
+//             string fullNote = $"{datePart} {text}";
+            
+//             File.AppendAllText(filePath, fullNote + Environment.NewLine);
+//             Console.WriteLine("Заметка добавлена!");
+//             break;
+//         case 2:
+//             if (!File.Exists(filePath))
+//             {
+//                 Console.WriteLine("Файл пуст или не существует");
+//                 break;
+//             }
+            
+//             var lines = File.ReadAllLines(filePath);
+//             if (lines.Length == 0)
+//             {
+//                 Console.WriteLine("Заметок нет");
+//                 break;
+//             }
+            
+//             int counter = 1;
+//             foreach (var line in lines)
+//             {
+//                 Console.WriteLine($"{counter}. {line}");
+//                 counter++;
+//             }
+//             break;
+//         case 3:
+//             Console.Write("Введите слово для поиска: ");
+//             string textToFind = Console.ReadLine();
+
+//             if (!File.Exists(filePath))
+//             {
+//                 Console.WriteLine("Файл пуст или не существует");
+//                 break;
+//             }
+
+//             var liness = File.ReadAllLines(filePath);
+//             if (liness.Length == 0)
+//             {
+//                 Console.WriteLine("Заметок нет");
+//                 break;
+//             }
+            
+//             Console.WriteLine($"Результаты поиска по слову '{textToFind}':");
+//             int foundCounter = 1;
+//             foreach (var line in liness)
+//             {
+//                 if (line.Contains(textToFind))
+//                 {
+//                     Console.WriteLine($"{foundCounter}. {line}");
+//                     foundCounter++;
+//                 }
+//             }
+            
+//             if (foundCounter == 1)
+//             {
+//                 Console.WriteLine("Совпадений не найдено");
+//             }
+//             break;
+
+//         case 4:
+//             File.WriteAllText(filePath, string.Empty);
+//             Console.WriteLine("Все заметки удалены");
+//             break;
+//         default:
+//             Console.WriteLine("Неверный пункт");
+//             break;
+//     }
+// }
 
 
