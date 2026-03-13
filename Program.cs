@@ -325,135 +325,171 @@
 
 
 
-static void PrintArrayNull(int?[] arr)
-{
-    foreach (var item in arr)
-    {
-        if (item is not null)
-        {
-            Console.Write($"{item} ");
-        }
-        else
-        {
-            Console.Write("null ");
-        }
-    }
-    Console.WriteLine();
-}
+// static void PrintArrayNull(int?[] arr)
+// {
+//     foreach (var item in arr)
+//     {
+//         if (item is not null)
+//         {
+//             Console.Write($"{item} ");
+//         }
+//         else
+//         {
+//             Console.Write("null ");
+//         }
+//     }
+//     Console.WriteLine();
+// }
 
-static void PrintArray(int[] arr)
-{
-    foreach (var item in arr)
-    {
-        Console.Write($"{item} ");
-    }
-    Console.WriteLine();
-}
+// static void PrintArray(int[] arr)
+// {
+//     foreach (var item in arr)
+//     {
+//         Console.Write($"{item} ");
+//     }
+//     Console.WriteLine();
+// }
 
-static int CountNull(int?[] arr)
-{
-    int counter = 0;
+// static int CountNull(int?[] arr)
+// {
+//     int counter = 0;
 
-    foreach (var item in arr)
-    {
-        if (item is null)
-        {
-            counter++;
-        }
-    }
+//     foreach (var item in arr)
+//     {
+//         if (item is null)
+//         {
+//             counter++;
+//         }
+//     }
 
-    return counter;
-}
+//     return counter;
+// }
 
-static int CountNotNull(int?[] arr)
-{
-    int counter = 0;
+// static int CountNotNull(int?[] arr)
+// {
+//     int counter = 0;
 
-    foreach (var item in arr)
-    {
-        if (item is not null)
-        {
-            counter++;
-        }
-    }
+//     foreach (var item in arr)
+//     {
+//         if (item is not null)
+//         {
+//             counter++;
+//         }
+//     }
 
-    return counter;
-}
+//     return counter;
+// }
 
 
-// Считаем что в массиве или числа, или null.
-static int CountSum(int?[] arr)
-{
-    int sum = 0;
+// // Считаем что в массиве или числа, или null.
+// static int CountSum(int?[] arr)
+// {
+//     int sum = 0;
 
-    foreach (var item in arr)
-    {
-        if (item.HasValue)
-        {
-            sum += item.Value;
-        }
-    }
+//     foreach (var item in arr)
+//     {
+//         if (item.HasValue)
+//         {
+//             sum += item.Value;
+//         }
+//     }
 
-    return sum;
-}
+//     return sum;
+// }
 
-static int[] CreateNewArrayWithNoNull(int?[] arr)
-{
-    int[] newArr = new int[arr.Length];
-    for (int i = 0; i < arr.Length; i++)
-    {
-        newArr[i] = arr[i] ?? -1;
-    }
+// static int[] CreateNewArrayWithNoNull(int?[] arr)
+// {
+//     int[] newArr = new int[arr.Length];
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         newArr[i] = arr[i] ?? -1;
+//     }
 
-    return newArr;
-}
+//     return newArr;
+// }
 
-static void PrintLength(int?[] arr)
-{
-    foreach (var item in arr)
-    {
-        string str = item?.ToString() ?? "null";
+// static void PrintLength(int?[] arr)
+// {
+//     foreach (var item in arr)
+//     {
+//         string str = item?.ToString() ?? "null";
 
-        Console.WriteLine($"element: {str}, length: {str.Length}");
-    }
-}
+//         Console.WriteLine($"element: {str}, length: {str.Length}");
+//     }
+// }
 
-static void ReplaceNullZeros(int?[] arr)
-{
-    for (int i = 0; i < arr.Length; i++)
-    {
-        arr[i] ??= 0;
-    }
-}
+// static void ReplaceNullZeros(int?[] arr)
+// {
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         arr[i] ??= 0;
+//     }
+// }
 
-int?[] numbers = {10, null, 25, null, 30, 15, null};
+// int?[] numbers = {10, null, 25, null, 30, 15, null};
 
-Console.WriteLine("--------------------------------");
-PrintArrayNull(numbers);
-Console.WriteLine("--------------------------------");
+// Console.WriteLine("--------------------------------");
+// PrintArrayNull(numbers);
+// Console.WriteLine("--------------------------------");
 
-int countNotNull = CountNotNull(numbers);
-int countNull = CountNull(numbers);
+// int countNotNull = CountNotNull(numbers);
+// int countNull = CountNull(numbers);
 
-Console.WriteLine($"null objects: {countNull}, not null objects: {countNotNull}");
-Console.WriteLine("--------------------------------");
+// Console.WriteLine($"null objects: {countNull}, not null objects: {countNotNull}");
+// Console.WriteLine("--------------------------------");
 
-int sum = CountSum(numbers);
-Console.WriteLine($"sum of not null numbers: {sum}");
-Console.WriteLine("--------------------------------");
+// int sum = CountSum(numbers);
+// Console.WriteLine($"sum of not null numbers: {sum}");
+// Console.WriteLine("--------------------------------");
 
-int[] newArr = CreateNewArrayWithNoNull(numbers);
-PrintArray(newArr);
-Console.WriteLine("--------------------------------");
+// int[] newArr = CreateNewArrayWithNoNull(numbers);
+// PrintArray(newArr);
+// Console.WriteLine("--------------------------------");
 
-PrintLength(numbers);
-Console.WriteLine("--------------------------------");
+// PrintLength(numbers);
+// Console.WriteLine("--------------------------------");
 
-Console.Write("Before: ");
-PrintArrayNull(numbers);
+// Console.Write("Before: ");
+// PrintArrayNull(numbers);
 
-ReplaceNullZeros(numbers);
+// ReplaceNullZeros(numbers);
 
-Console.WriteLine("After: ");
-PrintArray(numbers.Cast<int>().ToArray()); // меняем тип int? на int
-Console.WriteLine("--------------------------------");
+// Console.WriteLine("After: ");
+// PrintArray(numbers.Cast<int>().ToArray()); // меняем тип int? на int
+// Console.WriteLine("--------------------------------");
+
+// TODO: task 7: working with files
+
+// Console.WriteLine("enter path to dir");
+// string dirPath = Console.ReadLine();
+
+// if (!Directory.Exists(dirPath))
+// {
+//     Console.WriteLine("dirrectory doesn't exist");
+// }
+
+// string[] files = Directory.GetFiles(dirPath, "*.txt", SearchOption.AllDirectories);
+
+// if (files.GetLength(0) != 0)
+// {
+//     foreach (var file in files)
+//     {
+//         string name = Path.GetFileName(file);
+//         string dir = Path.GetDirectoryName(file);
+//         DateTime date = File.GetLastWriteTime(file);
+
+//         Console.WriteLine($"name: {name}, dir: {dir}, last write time: {date}");
+//     }
+
+//     Console.WriteLine($"Total files found: {files.Length}");
+// }
+// else
+// {
+//     Console.WriteLine("No files");
+// }
+
+
+
+
+
+
