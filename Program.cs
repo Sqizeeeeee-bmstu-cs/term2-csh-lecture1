@@ -507,14 +507,14 @@
 //     Console.WriteLine("3 - Найти по слову");
 //     Console.WriteLine("4 - Очистить все");
 //     Console.WriteLine("0 - Выход");
-    
+
 //     string input = Console.ReadLine();
 //     if (!int.TryParse(input, out int choose))
 //     {
 //         Console.WriteLine("Введите число!");
 //         continue;
 //     }
-    
+
 //     switch (choose)
 //     {
 //         case 0:
@@ -522,10 +522,10 @@
 //         case 1:
 //             Console.Write("Введите текст заметки: ");
 //             string text = Console.ReadLine();
-            
+
 //             string datePart = $"[{DateTime.Now:dd.MM.yyyy HH:mm}]";
 //             string fullNote = $"{datePart} {text}";
-            
+
 //             File.AppendAllText(filePath, fullNote + Environment.NewLine);
 //             Console.WriteLine("Заметка добавлена!");
 //             break;
@@ -535,14 +535,14 @@
 //                 Console.WriteLine("Файл пуст или не существует");
 //                 break;
 //             }
-            
+
 //             var lines = File.ReadAllLines(filePath);
 //             if (lines.Length == 0)
 //             {
 //                 Console.WriteLine("Заметок нет");
 //                 break;
 //             }
-            
+
 //             int counter = 1;
 //             foreach (var line in lines)
 //             {
@@ -566,7 +566,7 @@
 //                 Console.WriteLine("Заметок нет");
 //                 break;
 //             }
-            
+
 //             Console.WriteLine($"Результаты поиска по слову '{textToFind}':");
 //             int foundCounter = 1;
 //             foreach (var line in liness)
@@ -577,7 +577,7 @@
 //                     foundCounter++;
 //                 }
 //             }
-            
+
 //             if (foundCounter == 1)
 //             {
 //                 Console.WriteLine("Совпадений не найдено");
@@ -594,4 +594,35 @@
 //     }
 // }
 
+// TODO: 9
+
+// using System.Text;
+
+// StringBuilder sb = new StringBuilder();
+
+// int counter = 1;
+
+// while (true)
+// {
+//     string input = Console.ReadLine();
+//     if (string.IsNullOrEmpty(input))
+//     {
+//         break;
+//     }
+//     DateTime date = DateTime.Now;
+
+//     string formattedLine = $"{counter} [{DateTime.Now:dd.MM.yyyy HH:mm}] {input}";
+//     sb.AppendLine(formattedLine);
+
+//     counter++;
+// }
+
+// File.WriteAllText("list.txt", sb.ToString());
+
+// string[] lines = File.ReadAllLines("list.txt");
+
+// foreach (var line in lines)
+// {
+//     Console.WriteLine(line);
+// }
 
