@@ -703,3 +703,98 @@
     
 //     Console.Error.WriteLine("Фильтрация завершена");
 // }
+
+// TODO: task 11
+
+// Console.WriteLine("list:");
+
+// List<string> students = new List<string> { "Анна", "Борис", "Виктор", "Галина", "Дмитрий"};
+
+
+// Console.WriteLine("Список студентов:");
+// foreach (var student in students)
+// {
+//     Console.WriteLine(student);
+// }
+
+// students.Add("Владимир");
+
+// bool containsV = students.Contains("Владимир");
+// Console.WriteLine($"students has Владимир: {containsV}");
+
+// students.Remove("Борис");
+
+// int counter = 1;
+// foreach (var student in students)
+// {
+//     Console.WriteLine($"{counter}. {student}");
+//     counter++;
+// }
+
+// // ------------------------------------
+// Console.WriteLine();
+// Console.WriteLine("stack:");
+
+// Stack<string> examHistory = new Stack<string>();
+
+// examHistory.Push("Анна");
+// examHistory.Push("Борис");
+// examHistory.Push("Виктор");
+
+// Console.WriteLine($"Вершина стека (последний ответивший): {examHistory.Peek()}");
+
+// Console.WriteLine("\nИзвлечение всех студентов (LIFO порядок):");
+// while (examHistory.Count > 0)
+// {
+//     string student = examHistory.Pop();
+//     Console.WriteLine(student);
+// }
+
+// // ------------------------------------
+// Console.WriteLine();
+// Console.WriteLine("queue:");
+// Queue<string> labHistory = new Queue<string>();
+
+// labHistory.Enqueue("Анна");
+// labHistory.Enqueue("Борис");
+// labHistory.Enqueue("Виктор");
+// labHistory.Enqueue("Владимир");
+
+// var std = labHistory.Peek();
+
+// Console.WriteLine($"first student: {std}");
+
+// while (labHistory.Count > 0)
+// {
+//     var stdd = labHistory.Dequeue();
+//     Console.WriteLine($"out: {stdd}");
+// }
+
+// // ------------------------------------
+// Console.WriteLine();
+// Console.WriteLine("dict:");
+
+// Dictionary<string, int> grades = new Dictionary<string, int>
+// {
+//     { "Анна", 5 },
+//     { "Борис", 4 },
+//     { "Виктор", 3 },
+//     { "Галина", 5 },
+//     { "Дмитрий", 4 }
+// };
+
+// foreach (var item in grades)
+// {
+//     Console.WriteLine($"name: {item.Key}, grade: {item.Value}");
+// }
+
+// bool flag = grades.TryGetValue("Дмитрий", out int gradeD);
+
+// if (flag)
+// {
+//     Console.WriteLine($"Дмитрий: {gradeD}");
+// }
+
+// double average = grades.Values.Average();
+
+// Console.WriteLine(average);
