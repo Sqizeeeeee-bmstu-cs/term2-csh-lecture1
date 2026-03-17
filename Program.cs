@@ -626,3 +626,80 @@
 //     Console.WriteLine(line);
 // }
 
+// TODO: task 10: args, kwargs
+
+// FIXME: how to run app
+
+// dotnet run generate
+// dotnet run generate > grades.csv
+// dotnet run generate | dotnet run filter 4
+// dotnet run generate | dotnet run filter 4 > good.csv
+// dotnet run generate | dotnet run filter 4 > report.txt 2> diag.log
+
+// string mode = args.Length > 0 ? args[0] : "";
+
+// switch (mode)
+// {
+//     case "generate":
+//         RunGenerate();
+//         break;
+//     case "filter":
+//         if (args.Length < 2)
+//         {
+//             Console.Error.WriteLine("Ошибка: для режима filter нужен второй аргумент (оценка)");
+//             return;
+//         }
+//         if (!int.TryParse(args[1], out int minGrade))
+//         {
+//             Console.Error.WriteLine("Ошибка: оценка должна быть числом");
+//             return;
+//         }
+//         RunFilter(minGrade);
+//         break;
+//     default:
+//         Console.Error.WriteLine("Использование: program.exe generate|filter [оценка]");
+//         break;
+// }
+
+// static void RunGenerate()
+// {
+//     Console.Error.WriteLine("Генерация данных...");
+    
+//     string[] lastNames = { "Иванов", "Петров", "Сидоров", "Смирнов", "Кузнецов" };
+//     string[] subjects = { "Математика", "Физика", "Информатика" };
+//     Random random = new Random();
+    
+//     for (int i = 0; i < 20; i++)
+//     {
+//         string lastName = lastNames[random.Next(lastNames.Length)];
+//         string subject = subjects[random.Next(subjects.Length)];
+//         int grade = random.Next(2, 6);
+        
+//         Console.WriteLine($"{lastName};{subject};{grade}");
+//     }
+    
+//     Console.Error.WriteLine("Генерация завершена");
+// }
+
+// static void RunFilter(int minGrade)
+// {
+//     Console.Error.WriteLine($"Фильтрация: оценка >= {minGrade}");
+    
+//     string? line;
+//     while ((line = Console.ReadLine()) != null)
+//     {
+//         string[] parts = line.Split(';');
+//         if (parts.Length == 3)
+//         {
+//             if (int.TryParse(parts[2], out int grade))
+//             {
+//                 if (grade >= minGrade)
+//                 {
+//                     Console.WriteLine(line);
+//                 }
+//             }
+//         }
+//     }
+    
+//     Console.Error.WriteLine("Фильтрация завершена");
+// }
