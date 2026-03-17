@@ -11,8 +11,6 @@ obj/
 Debug/
 Release/
 
-a.txt
-c.txt
 
 # Logs
 *.log
