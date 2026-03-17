@@ -664,27 +664,27 @@
 // static void RunGenerate()
 // {
 //     Console.Error.WriteLine("Генерация данных...");
-    
+
 //     string[] lastNames = { "Иванов", "Петров", "Сидоров", "Смирнов", "Кузнецов" };
 //     string[] subjects = { "Математика", "Физика", "Информатика" };
 //     Random random = new Random();
-    
+
 //     for (int i = 0; i < 20; i++)
 //     {
 //         string lastName = lastNames[random.Next(lastNames.Length)];
 //         string subject = subjects[random.Next(subjects.Length)];
 //         int grade = random.Next(2, 6);
-        
+
 //         Console.WriteLine($"{lastName};{subject};{grade}");
 //     }
-    
+
 //     Console.Error.WriteLine("Генерация завершена");
 // }
 
 // static void RunFilter(int minGrade)
 // {
 //     Console.Error.WriteLine($"Фильтрация: оценка >= {minGrade}");
-    
+
 //     string? line;
 //     while ((line = Console.ReadLine()) != null)
 //     {
@@ -700,7 +700,7 @@
 //             }
 //         }
 //     }
-    
+
 //     Console.Error.WriteLine("Фильтрация завершена");
 // }
 
@@ -798,3 +798,29 @@
 // double average = grades.Values.Average();
 
 // Console.WriteLine(average);
+
+
+// TODO: 12: tuples
+
+using System.Net;
+using System.Reflection;
+using Microsoft.VisualBasic;
+
+Tuple<string, string, int> oldBook = new Tuple<string, string, int>("Мастер и маргарита", "Булгаков", 1967);
+
+Console.WriteLine(oldBook.Item1);
+Console.WriteLine(oldBook.Item2);
+Console.WriteLine(oldBook.Item3);
+
+Console.WriteLine("----------------------------");
+
+var newBook = (title: "Мастер и маргарита",
+                author: "Булгаков",
+                year: 1967);
+
+Console.WriteLine(newBook.title);
+Console.WriteLine(newBook.author);
+Console.WriteLine(newBook.year);
+
+
+
