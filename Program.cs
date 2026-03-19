@@ -802,49 +802,76 @@
 
 // TODO: 12: tuples
 
-using System.Net;
-using System.Reflection;
-using Microsoft.VisualBasic;
 
-Tuple<string, string, int> oldBook = new Tuple<string, string, int>("Мастер и маргарита", "Булгаков", 1967);
+// Tuple<string, string, int> oldBook = new Tuple<string, string, int>("Мастер и маргарита", "Булгаков", 1967);
 
-Console.WriteLine(oldBook.Item1);
-Console.WriteLine(oldBook.Item2);
-Console.WriteLine(oldBook.Item3);
+// Console.WriteLine(oldBook.Item1);
+// Console.WriteLine(oldBook.Item2);
+// Console.WriteLine(oldBook.Item3);
 
-Console.WriteLine("----------------------------");
+// Console.WriteLine("----------------------------");
 
-var newBook = (title: "Мастер и маргарита",
-                author: "Булгаков",
-                year: 1967);
+// var newBook = (title: "Мастер и маргарита",
+//                 author: "Булгаков",
+//                 year: 1967);
 
-Console.WriteLine(newBook.title);
-Console.WriteLine(newBook.author);
-Console.WriteLine(newBook.year);
+// Console.WriteLine(newBook.title);
+// Console.WriteLine(newBook.author);
+// Console.WriteLine(newBook.year);
 
-List<(string Title, string Author, int Year)> books = new List<(string, string, int)>
-{
-    ("Война и мир", "Толстой", 1869),
-    ("Преступление и наказание", "Достоевский", 1866),
-    ("Мастер и Маргарита", "Булгаков", 1967)
-};
+// List<(string Title, string Author, int Year)> books = new List<(string, string, int)>
+// {
+//     ("Война и мир", "Толстой", 1869),
+//     ("Преступление и наказание", "Достоевский", 1866),
+//     ("Мастер и Маргарита", "Булгаков", 1967)
+// };
 
-(string oldest, string newest, double avgYear) GetBookStats(List<(string title, string author, int year)> books)
-{
-    double avgYear = books.Average(book => book.year);
-    int newestD = books.Max(book => book.year);
-    int oldestD = books.Min(book => book.year);
+// (string oldest, string newest, double avgYear) GetBookStats(List<(string title, string author, int year)> books)
+// {
+//     double avgYear = books.Average(book => book.year);
+//     int newestD = books.Max(book => book.year);
+//     int oldestD = books.Min(book => book.year);
 
-    string oldest = books.First(book => book.year == oldestD).title;
-    string newest = books.First(book => book.year == newestD).title;
+//     string oldest = books.First(book => book.year == oldestD).title;
+//     string newest = books.First(book => book.year == newestD).title;
 
-    return (oldest, newest, avgYear);
+//     return (oldest, newest, avgYear);
     
-}
+// }
 
-(string oldest, string newest, double avg) = GetBookStats(books);
+// (string oldest, string newest, double avg) = GetBookStats(books);
 
-(string oldestt, string newestt, _) = GetBookStats(books);
+// (string oldestt, string newestt, _) = GetBookStats(books);
 
-Console.WriteLine($"oldest: {oldest}, newest: {newest}, avg year: {avg}");
+// Console.WriteLine($"oldest: {oldest}, newest: {newest}, avg year: {avg}");
 
+// string ClassifyBook((string genre, int year) book)
+// {
+//     return (book.genre, book.year) switch
+//     {
+//         ("роман", < 1900) => "Классический роман",
+//         ("роман", >= 2000) => "Современный роман",
+//         ("фантастика", >= 1950 and < 2000) => "Золотая эпоха фантастики",
+//         ("фантастика", >= 2000) => "Современная фантастика",
+//         ("детектив", _) => "Детектив (любой год)",
+//         (_, < 1800) => "Антикварная книга",
+//         (_, >= 2020) => "Новинка",
+//         _ => "Обычная книга"
+//     };
+// }
+// var books = new[]
+// {
+//     (genre: "роман", year: 1869),
+//     (genre: "роман", year: 2023),
+//     (genre: "фантастика", year: 1965),
+//     (genre: "фантастика", year: 2021),
+//     (genre: "детектив", year: 2015),
+//     (genre: "поэзия", year: 1795),
+//     (genre: "наука", year: 2022)
+// };
+
+// foreach (var book in books)
+// {
+//     string description = ClassifyBook(book);
+//     Console.WriteLine($"{book.genre}, {book.year} -> {description}");
+// }
