@@ -822,5 +822,29 @@ Console.WriteLine(newBook.title);
 Console.WriteLine(newBook.author);
 Console.WriteLine(newBook.year);
 
+List<(string Title, string Author, int Year)> books = new List<(string, string, int)>
+{
+    ("Война и мир", "Толстой", 1869),
+    ("Преступление и наказание", "Достоевский", 1866),
+    ("Мастер и Маргарита", "Булгаков", 1967)
+};
 
+(string oldest, string newest, double avgYear) GetBookStats(List<(string title, string author, int year)> books)
+{
+    double avgYear = books.Average(book => book.year);
+    int newestD = books.Max(book => book.year);
+    int oldestD = books.Min(book => book.year);
+
+    string oldest = books.First(book => book.year == oldestD).title;
+    string newest = books.First(book => book.year == newestD).title;
+
+    return (oldest, newest, avgYear);
+    
+}
+
+(string oldest, string newest, double avg) = GetBookStats(books);
+
+(string oldestt, string newestt, _) = GetBookStats(books);
+
+Console.WriteLine($"oldest: {oldest}, newest: {newest}, avg year: {avg}");
 
